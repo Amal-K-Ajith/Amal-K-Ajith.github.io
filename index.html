@@ -4,11 +4,70 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Test Site</title>
+    <style>
+        body{
+            background:black;
+        }
+        #bub-wrap{
+            position: absolute;
+            bottom: 0;
+            height:300px;
+            width: 100%;
+            /* border:1px solid white; */
+            margin:0 auto;
+            /* position:relative; */
+            overflow:hidden;
+        }
+        .bub{
+            width:300px;
+            height:300px;
+            background:cyan;
+            border-radius:100%;
+            position:absolute;
+            top:100%;
+            animation:animate 2s ease-in-out infinite;
+        }
+
+        @keyframes animate{
+         0%,100%{
+            transform:translate(0%,0%);
+        /*     background:red; */
+         }
+         50%{
+            transform:translate(0%,-20%);
+        /*     background:cyan; */
+         }
+        }
+    </style>
 </head>
 <body style="padding: 0 !important;margin: 0 !important;">
-    <div style="display: flex;align-items: center;justify-content: center;height: 100vh;background: black;">
+    <div style="    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    background: black;
+    position: relative;
+    justify-content: center;">
         <h1 style="color: white;">Hello Test</h1>
+        <div id="bub-wrap">
+            <!-- <div class="bub" style="background: white;"></div> -->
+        </div>
     </div>
+    <script>
+        const bub= document.getElementById("bub-wrap");
+        const clr=['red','blue','green','yellow','cyan','pink'];
+        let i=0;
+        const fn=e=>{
+            const di=document.createElement("div");
+            if(i>=clr.length)i=0;
+            di.className="bub";
+            di.style.background=clr[i++];
+            di.style.left=`${e}px`;
+            bub.appendChild(di);
+            setTimeout(()=>bub.removeChild(di),2000);
+        }
+        window.onmousemove=e=>fn(e.clientX);
+    </script>
 </body>
 </html>
