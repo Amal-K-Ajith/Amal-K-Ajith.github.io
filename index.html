@@ -63,7 +63,7 @@
             if(i>=clr.length)i=0;
             di.className="bub";
             di.style.background=clr[i++];
-            di.style.left=`${e}px`;
+            di.style.left=`${e-100}px`;
             bub.appendChild(di);
             setTimeout(()=>bub.removeChild(di),2000);
         }
