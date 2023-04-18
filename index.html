@@ -26,6 +26,7 @@
             border-radius:100%;
             position:absolute;
             top:100%;
+
             animation:animate 2s ease-in-out infinite;
         }
 
@@ -39,25 +40,63 @@
         /*     background:cyan; */
          }
         }
+        @keyframes rotate {
+            from{
+                rotate: 0;
+            }
+            50%{
+                scale: 1 1.5;
+            }
+            to{
+                rotate:360deg;
+            }
+            /* 100%{/ */
+        }
+        #blob{
+            aspect-ratio: 1;
+            width: 200px;
+            border-radius: 50%;
+            position: absolute;
+            z-index: 1;
+            translate: -50% -50%;
+            /* transition: 10s ease-in; */
+            animation: rotate 5s ease-in infinite forwards;
+            background: linear-gradient(120deg,cyan,white,cyan);
+        }
     </style>
 </head>
 <body style="padding: 0 !important;margin: 0 !important;">
-    <div style="    display: flex;
-    align-items: center;
-    flex-direction: column;
+    <div id="blob"></div>
+    <div style="    
+    backdrop-filter: blur(100px);
     height: 100vh;
-    background: black;
-    position: relative;
-    justify-content: center;">
-        <h1 style="color: white;">Hello Test</h1>
-        <div id="bub-wrap">
-            <!-- <div class="bub" style="background: white;"></div> -->
+    z-index: 2;
+    background: transparent;
+    width: 100%;
+    position: absolute;">
+        <div style="    display: flex;
+        align-items: center;
+        flex-direction: column;
+        height: 100vh;
+        position: relative;
+        justify-content: center;">
+            <h1 style="color: white;">Hello Test</h1>
+            <div id="bub-wrap">
+                <!-- <div class="bub" style="background: white;"></div> -->
+            </div>
         </div>
     </div>
     <script>
         const bub= document.getElementById("bub-wrap");
         const clr=['red','blue','green','yellow','cyan','pink'];
         let i=0;
+        const follow = (x,y)=>{
+            let blob=document.getElementById("blob")
+            blob.animate({
+                left: `${x}px`,
+                top: `${y}px`
+            },{duration: 3000, fill:"forwards"})
+        }
         const fn=e=>{
             const di=document.createElement("div");
             if(i>=clr.length)i=0;
@@ -67,7 +106,10 @@
             bub.appendChild(di);
             setTimeout(()=>bub.removeChild(di),2000);
         }
-        window.onmousemove=e=>fn(e.clientX);
+        window.onmousemove=e=>{
+            fn(e.clientX);
+            follow(e.clientX,e.clientY)
+        }
     </script>
 </body>
 </html>
