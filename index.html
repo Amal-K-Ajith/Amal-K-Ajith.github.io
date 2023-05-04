@@ -4,115 +4,24 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Test Site</title>
-    <style>
-        body{
-            background:black;
-            overflow: hidden;
-        }
-        #bub-wrap{
-            position: absolute;
-            bottom: 0;
-            height:300px;
-            width: 100%;
-            /* border:1px solid white; */
-            margin:0 auto;
-            /* position:relative; */
-            overflow:hidden;
-        }
-        .bub{
-            width:300px;
-            height:300px;
-            background:cyan;
-            border-radius:100%;
-            position:absolute;
-            top:100%;
-
-            animation:animate 2s ease-in-out infinite;
-        }
-
-        @keyframes animate{
-         0%,100%{
-            transform:translate(0%,0%);
-        /*     background:red; */
-         }
-         50%{
-            transform:translate(0%,-20%);
-        /*     background:cyan; */
-         }
-        }
-        @keyframes rotate {
-            from{
-                rotate: 0;
-            }
-            50%{
-                scale: 1 1.5;
-            }
-            to{
-                rotate:360deg;
-            }
-            /* 100%{/ */
-        }
-        #blob{
-            aspect-ratio: 1;
-            width: 200px;
-            border-radius: 50%;
-            position: absolute;
-            z-index: 1;
-            translate: -50% -50%;
-            left: 50%;
-            top: 50%;
-            /* transition: 10s ease-in; */
-            animation: rotate 5s ease-in infinite forwards;
-            background: linear-gradient(120deg,cyan,white,cyan);
-        }
-    </style>
+    <link href="styles.css" rel="stylesheet">
+    <title>Welcome</title>
 </head>
 <body style="padding: 0 !important;margin: 0 !important;">
     <div id="blob"></div>
-    <div style="    
-    backdrop-filter: blur(100px);
-    height: 100vh;
-    z-index: 2;
-    background: transparent;
-    width: 100%;
-    position: absolute;">
-        <div style="    display: flex;
-        align-items: center;
-        flex-direction: column;
-        height: 100vh;
-        position: relative;
-        justify-content: center;">
-            <h1 style="color: white;">Hello Test</h1>
-            <div id="bub-wrap">
-                <!-- <div class="bub" style="background: white;"></div> -->
+    <div class="onTop">
+        <div class="main-content">
+            <div style="color: white;font-size: 28px;">Hello Welcome....!</div>
+            <div id="bub-wrap"></div>
+            <div>
+                <button onclick="generateCells()">Generate Cells</button>
             </div>
+            <div id="cell-cont"></div>
         </div>
     </div>
+    <script src="javascript.js"></script>
     <script>
-        const bub= document.getElementById("bub-wrap");
-        const clr=['red','blue','green','yellow','cyan','pink'];
-        let i=0;
-        const follow = (x,y)=>{
-            let blob=document.getElementById("blob")
-            blob.animate({
-                left: `${x}px`,
-                top: `${y}px`
-            },{duration: 3000, fill:"forwards"})
-        }
-        const fn=e=>{
-            const di=document.createElement("div");
-            if(i>=clr.length)i=0;
-            di.className="bub";
-            di.style.background=clr[i++];
-            di.style.left=`${e-100}px`;
-            bub.appendChild(di);
-            setTimeout(()=>bub.removeChild(di),2000);
-        }
-        window.onmousemove=e=>{
-            fn(e.clientX);
-            follow(e.clientX,e.clientY)
-        }
+            window.addEventListener("resize",myFunction);
     </script>
 </body>
 </html>
