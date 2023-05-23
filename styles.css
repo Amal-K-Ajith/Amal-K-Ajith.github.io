@@ -70,13 +70,26 @@ body{
     position: relative;
     justify-content: center;
 }
-.cell-cont{
+#cell-cont{
     color: #000;
+    width: 112%;
+}
+#heading{
+    color: white;
+    /* -webkit-background-clip: text; */
+    width: 19ch;
+    font-size: 80px;
+    background: -webkit-linear-gradient(292deg,#890070, #553e84,#3473e3,#02b35f);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 .cell{
+    transition: 1s ease-in-out;
     background: white;
-    width: 20px;
-    height: 20px;
+    width: 50px;
+    height: 50px;
     margin: 2px;
+    color: black;
 }
 /* text style */
