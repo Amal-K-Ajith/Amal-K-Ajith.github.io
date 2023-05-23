@@ -21,21 +21,32 @@ const fn=e=>{
 const generateCells= ()=>{
     console.log("hello there")
     const cell_cont=document.getElementById("cell-cont");
-    window.innerWidth
-    for(let i=0;i<10;i++){
+    cell_cont.innerHTML='';
+    
+    for(let i=0;i<=(window.innerWidth/50)*9;i++){
         const content = document.createElement("div");
         content.className="cell"
+        // content.innerHTML=i;
         content.appendChild(document.createElement("p"))
         cell_cont.appendChild(content);
     }
 }
-var x = 0;
-function myFunction() {
-  var txt = x += 1;
-  document.getElementById("demo").innerHTML = txt;
-}
 window.onmousemove=e=>{
-    fn(e.clientX);
-        follow(e.clientX,e.clientY)
-    }
-    window.addEventListener("resize",generateCells);
+    // fn(e.clientX);
+    follow(e.clientX,e.clientY)
+}
+// window.addEventListener("resize",generateCells);
+
+document.getElementById('heading').onmouseover=event=>{
+    const letters="ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    let ite=0;
+    let int=setInterval(()=>{
+        event.target.innerHTML=event.target.innerHTML.split('').map(
+            (letter,index)=>{
+            if(index<ite)return event.target.dataset.value[index];
+            return letters[Math.floor(Math.random()*26)]
+        }).join("");
+        if(ite>event.target.dataset.value.length)clearInterval(int);
+        ite+=1/3;
+    },50)
+}
