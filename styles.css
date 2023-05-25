@@ -1,6 +1,7 @@
 body{
     background:black;
     overflow: hidden;
+    font-family: 'raleway',serif;
 }
 #bub-wrap{
     position: absolute;
