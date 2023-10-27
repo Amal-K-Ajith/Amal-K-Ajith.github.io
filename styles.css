@@ -78,7 +78,7 @@ body{
 #heading{
     color: white;
     /* -webkit-background-clip: text; */
-    width: 19ch;
+    width: 21ch;
     font-size: 80px;
     background: -webkit-linear-gradient(292deg,#890070, #553e84,#3473e3,#02b35f);
     -webkit-background-clip: text;
