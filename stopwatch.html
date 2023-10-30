@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles.css">
+    <title>Stop Watch</title>
+</head>
+<body>
+    <div class="flex h-100" style="justify-content: center;flex-direction: column;">
+        <div class="watch-cont flex gradient-green-repeat" style="flex-direction: column;">
+            <div style="z-index: -1;">
+                <span id="min">00</span>
+                <span>:</span>
+                <span id="sec">00</span>
+            </div>
+            <div style="z-index: -1;">
+                <div class="play" id="click_me" onclick="startWatch()"></div>
+                <div class="stop" id="stop" onclick="startWatch(true)" style="display: none;"></div>
+            </div>
+        </div>
+    </div>
+    <script src="./javascript.js"></script>
+</body>
+</html>

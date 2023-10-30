@@ -1,8 +1,8 @@
+// Bubble Code
 const bub= document.getElementById("bub-wrap");
 const clr=['red','blue','green','yellow','cyan','pink'];
 let i=0;
 let count=0
-let scrambleFlag=false;
 const follow = (x,y)=>{
     let blob=document.getElementById("blob")
     blob.animate({
@@ -33,14 +33,18 @@ const generateCells= ()=>{
         cell_cont.appendChild(content);
     }
 }
+// window.addEventListener("resize",generateCells);
+
+// --- Bubble code end ----
+
+let scrambleFlag=false;
+let stopFlag;
 window.onmousemove=e=>{
-    // fn(e.clientX);
     follow(e.clientX,e.clientY)
 }
-// window.addEventListener("resize",generateCells);
 function changeHeading(){
     if(scrambleFlag)return;
-    const arr=['Hello Welcome', 'welcome to the site','frontend dev','js','java','react','angular'];
+    const arr=['Hello Welcome', 'welcome to the site','frontend dev','js','java','react','angular','node'];
     document.getElementById('heading').dataset.value=arr[count%arr.length].toUpperCase();
     scramble();
     count++;
@@ -52,7 +56,7 @@ function scramble(){
     const heading=document.getElementById('heading');
     let int=setInterval(()=>{
         heading.innerHTML=heading.dataset.value.split('').map(
-            (letter,index)=>{
+            (_letter,index)=>{
             if(index<ite)return heading.dataset.value[index];
             return letters[Math.floor(Math.random()*26)]
         }).join("");
@@ -63,8 +67,6 @@ function scramble(){
         ite+=1/3;
     },50)
 }
-// document.getElementById('heading').onmouseover=event=>{
-    // }
 document.getElementById('heading').onmouseleave=event=>{
     scrambleFlag=false;
     changeHeading();
@@ -73,3 +75,33 @@ document.getElementById('heading').onmouseover=event=>{
     scrambleFlag=true;
 }
 (changeHeading)()
+
+function startWatch(stop=false){
+ stopFlag = stop;
+ let min = document.getElementById("min");
+ let sec = document.getElementById("sec");
+ let click = document.getElementById("click_me");
+ let stopId = document.getElementById("stop");
+ if(!stop){
+     click.style.display = "none";
+     stopId.style.display = "block";
+    } 
+else {
+    stopId.style.display = "none";
+    click.style.display = "block";
+ }
+ let seconds=0;
+ let interval = setInterval(() => {
+     if(stopFlag){
+        clearInterval(interval);
+        return
+     }
+    seconds = +sec.innerHTML + 1;
+    if(sec.innerHTML>=59)min.innerHTML= formatNumber((seconds%60)+1);
+    sec.innerHTML= formatNumber(seconds%60);
+ },1000)
+}
+
+function formatNumber(number){
+    return number<=9 ? "0"+number :number
+}
