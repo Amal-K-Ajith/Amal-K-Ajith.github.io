@@ -7,16 +7,46 @@
     <title>Stop Watch</title>
 </head>
 <body>
-    <div class="flex h-100" style="justify-content: center;flex-direction: column;">
+    <div id="blob"></div>
+    <div class="flex h-100 onTop gradient-green-repeat" style="justify-content: center;flex-direction: column;">
+        <div class="flex settimer-cont">
+            <h4>Set Min:&nbsp;&nbsp;</h1>
+            <span style="cursor: pointer;" onclick="setTimerMin('+')">
+                <span class="">+</span>
+            </span>
+            <span style="margin: 0 20px;" id="timer_min">0</span>
+            <span style="cursor: pointer;" onclick="setTimerMin('-')">
+                <span class="">-</span>
+            </span>
+        </div>
         <div class="watch-cont flex gradient-green-repeat" style="flex-direction: column;">
             <div style="z-index: -1;">
                 <span id="min">00</span>
                 <span>:</span>
                 <span id="sec">00</span>
             </div>
-            <div style="z-index: -1;">
-                <div class="play" id="click_me" onclick="startWatch()"></div>
-                <div class="stop" id="stop" onclick="startWatch(true)" style="display: none;"></div>
+            <div class="control-cont">
+                <div class="play_parent" id="play_parent" onclick="startWatch()">
+                    <div style="z-index: -1;
+                                position: absolute;
+                                right: -5px;
+                                bottom: -10px;" 
+                        class="play" id="play_child">
+                    </div>
+                </div>
+                <div class="stop_parent" id="stop_parent" onclick="startWatch(true)" style="display: none;">
+                    <div style="z-index: -1;
+                                position: absolute;
+                                right: 4px;
+                                bottom: 4px;
+                                display: none;" 
+                          class="stop" id="stop_child">
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <div onclick="playSound()" id="stop_sound" style="display: none;color: lime;font-size: 30px;cursor: pointer;">Stop Alarm</div>
             </div>
         </div>
     </div>
