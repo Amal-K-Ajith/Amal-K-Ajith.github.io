@@ -79,16 +79,20 @@ body{
     width: 112%;
 }
 #heading{
-    color: white;
-    -webkit-background-clip: text;
     min-width: 22ch;
     font-size: 80px;
     padding-left: 150px;
+}
+
+.gradient-purple{
+    -webkit-text-fill-color: transparent;
     background: -webkit-linear-gradient(292deg,#890070, #553e84,#3473e3,#02b35f);
     -webkit-background-clip: text;
     background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: white;
+    -webkit-background-clip: text;
 }
+
 .cell{
     transition: 1s ease-in-out;
     background: white;
@@ -162,4 +166,24 @@ body{
 .gradient-green-repeat{
     background: linear-gradient(0deg, black, transparent);
     background-size: 100% 2px;
+}
+.link{
+    border: 2px solid;
+    padding: 20px;
+    border-radius: 12px;
+    background: #ffffff1f;
+    text-decoration: none;
+    margin: 0 20px 0 0;
+    &:hover{
+        box-shadow: 0 0 5px 7px;
+    }
+}
+.other-link{
+    color: rgb(30, 182, 196)
+}
+.stopwatch-link{
+    color: lime;
+}
+.project-heading{
+    font-size: 40px;
 }

@@ -9,15 +9,19 @@
 <body>
     <div id="blob"></div>
     <div class="flex h-100 onTop gradient-green-repeat" style="justify-content: center;flex-direction: column;">
-        <div class="flex settimer-cont">
-            <h4>Set Min:&nbsp;&nbsp;</h1>
-            <span style="cursor: pointer;" onclick="setTimerMin('+')">
-                <span class="">+</span>
-            </span>
-            <span style="margin: 0 20px;" id="timer_min">0</span>
-            <span style="cursor: pointer;" onclick="setTimerMin('-')">
-                <span class="">-</span>
-            </span>
+        <div class="settimer-cont">
+            <p style="font-size: 12px;"> Note:- Min should be greater than 0 and Alarm will go off once a timer completes.</p>
+            <div class="flex">
+                <h4 style="margin: 0;">Set Min:&nbsp;&nbsp;</h1>
+                <span style="cursor: pointer;" onclick="setTimerMin('+')">
+                    <span class="">+</span>
+                </span>
+                <span style="margin: 0 20px;" id="timer_min">0</span>
+                <span style="cursor: pointer;" onclick="setTimerMin('-')">
+                    <span class="">-</span>
+                </span>
+
+            </div>
         </div>
         <div class="watch-cont flex gradient-green-repeat" style="flex-direction: column;">
             <div style="z-index: -1;">
