@@ -3,7 +3,8 @@ body{
     overflow: hidden;
     padding: 0;
     margin: 0;
-    font-family: 'raleway',serif;
+    /* font-family: 'raleway',serif; */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 #bub-wrap{
     position: absolute;
@@ -112,78 +113,3 @@ body{
 
 /* text style */
 
-
-/* Watch */
-.watch-cont{
-    height: 500px;
-    width: 500px;
-    border: 7px solid rgb(4, 255, 0);
-    justify-content: center;
-    border-radius: 50%;
-    position: relative;
-    & > div > span{
-        color: #02b35f;
-        font-size: 80px;
-    }
-}
-
-.settimer-cont{
-    color: lime;
-    font-size: 50px;
-    position: absolute;
-    left: 100px;
-    span{
-     position: relative;   
-    }
-}
-
-.control-cont{
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.play{
-        border-left: 40px solid transparent;
-        border-top: 40px solid lime;
-        margin: 20px;
-        transform: rotate(45deg);
-}
-.stop{
-    border: 20px solid lime;
-}
-.stop_parent, .play_parent{
-    position: relative;
-    width: 50px;
-    height: 60px;
-}
-
-._1Z{
-    z-index: -1;
-    position: absolute;
-}
-
-.gradient-green-repeat{
-    background: linear-gradient(0deg, black, transparent);
-    background-size: 100% 2px;
-}
-.link{
-    border: 2px solid;
-    padding: 20px;
-    border-radius: 12px;
-    background: #ffffff1f;
-    text-decoration: none;
-    margin: 0 20px 0 0;
-    &:hover{
-        box-shadow: 0 0 5px 7px;
-    }
-}
-.other-link{
-    color: rgb(30, 182, 196)
-}
-.stopwatch-link{
-    color: lime;
-}
-.project-heading{
-    font-size: 40px;
-}
