@@ -132,3 +132,26 @@ body{
 .project-heading{
     font-size: 40px;
 }
+
+.icon{
+    width: 20px;
+    height: 20px;
+    aspect-ratio: 1;
+    margin-right: 10px;
+}
+
+.linkedIn{
+    background: url('./linkedin.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.github{
+    background: url('./github.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.gmail{
+    background: url('./gmail.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
