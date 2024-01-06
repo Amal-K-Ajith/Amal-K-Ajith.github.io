@@ -112,6 +112,7 @@ function startWatch(stop = false) {
     stopFlag = stop;
     let min = eleId("min");
     let sec = eleId("sec");
+    let milli_sec = eleId("milli_sec");
     let click = eleId("play_child");
     let click_parent = eleId("play_parent");
     let stopId = eleId("stop_child");
@@ -134,23 +135,27 @@ function startWatch(stop = false) {
         return;
     }
     watchInterval.push(setInterval(() => {
-         if(seconds>=min_timer_value && min_timer_value>0){
+        if (Number(min.innerHTML) >= min_timer_value && min_timer_value > 0) {
             playSound();
             let stop_sound = eleId("stop_sound");
-            stop_sound.style.display="block";
-            stopFlag=true
+            stop_sound.style.display = "block";
+            stopFlag = true
             watchInterval.forEach(clearInterval);
             return
-         }
+        }
         seconds = ++seconds;
-        if (sec.innerHTML >= 59) min.innerHTML =  formatNumber(Number(min.innerHTML)+((seconds % 60) + 1));
-        sec.innerHTML = formatNumber(seconds % 60);
-    }, 1000))
+        if (milli_sec.innerHTML >= 99 && sec.innerHTML >= 59) {
+            min.innerHTML = formatNumber(Number(min.innerHTML) + ((sec.innerHTML % 59) + 1));
+        }
+        if (milli_sec.innerHTML >= 99) {
+            sec.innerHTML = formatNumber((Number(sec.innerHTML) + 1) % 60);
+        }
+        milli_sec.innerHTML = formatNumber(seconds % 100);
+    }, 10))
 }
 
-function setTimer(){
+function setTimer() {
     let timer_value = eleId("timer").value;
-    console.log(timer_value);
 }
 
 function setTimerMin (sign){
@@ -158,7 +163,7 @@ function setTimerMin (sign){
     if(min_ele.innerHTML<='0' && sign=='-')return;
     if(sign === '-')min_ele.innerHTML=(+min_ele.innerHTML)-1;
     if(sign === '+')min_ele.innerHTML=(+min_ele.innerHTML)+1;
-    min_timer_value = +min_ele.innerHTML*60
+    min_timer_value = +min_ele.innerHTML;
 }
 
 function playSound() {
