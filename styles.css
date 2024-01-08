@@ -8,6 +8,11 @@ body{
     padding: 0;
     margin: 0;
     font-family: 'raleway',serif;
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+
+
 }
 #bub-wrap{
     position: absolute;
@@ -74,7 +79,7 @@ body{
     display: flex;
     /* align-items: center; */
     flex-direction: column;
-    height: 100vh;
+    min-height: 100vh;
     position: relative;
     justify-content: center;
 }
@@ -83,9 +88,9 @@ body{
     width: 112%;
 }
 #heading{
-    min-width: 22ch;
-    font-size: 80px;
-    padding-left: 150px;
+    max-width: 30ch;
+    font-size: 3rem;
+    padding-left: 90px;
 }
 
 .gradient-purple{
@@ -113,6 +118,9 @@ body{
     display: flex;
     align-items: center;
 }
+.flex-wrap{
+    flex-wrap: wrap;
+}
 
 /* text style */
 
@@ -123,6 +131,7 @@ body{
     background: #ffffff1f;
     text-decoration: none;
     margin: 0 20px 0 0;
+    margin-bottom: 10px;
     color: rgb(30, 182, 196);
     &:hover{
         box-shadow: 0 0 5px 7px;
@@ -131,6 +140,8 @@ body{
 
 .project-heading{
     font-size: 40px;
+    margin: 0;
+    margin-bottom: 10px;
 }
 
 .icon{
@@ -155,3 +166,11 @@ body{
     background-size: contain;
     background-repeat: no-repeat;
 }
+/* 425 width */
+@media screen and (max-width : 425px){
+    #heading{
+        max-width: 22ch;
+        font-size: 2rem;
+        padding-left: 15px;
+    }
+}   

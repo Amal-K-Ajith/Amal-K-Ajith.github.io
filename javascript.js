@@ -73,7 +73,8 @@ window.onmousemove=e=>{
 }
 function changeHeading(){
     if(scrambleFlag || runningFlag || !eleId("heading")) return;
-    const arr=['Hello Welcome', 'my name is amal k ajith','frontend dev','js','java','react','angular','node'];
+    const arr=['Hello Welcome', 'my name is amal k ajith','Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum '
+,'frontend dev','js','java','react','angular','node'];
     eleId('heading').dataset.value=arr[count%arr.length].toUpperCase();
     runningFlag = true
     scramble();
@@ -101,7 +102,7 @@ function scramble(){
 if(eleId('heading')){
     eleId('heading').onmouseleave=event=>{
         scrambleFlag=false;
-        changeHeading();
+        // changeHeading();
     }    
     eleId('heading').onmouseover=event=>{
         scrambleFlag=true;
@@ -205,5 +206,5 @@ function formatNumber(number){
 }
 
 window.onload = (event) =>{
-     (changeHeading)()
+    //  (changeHeading)()
 }
