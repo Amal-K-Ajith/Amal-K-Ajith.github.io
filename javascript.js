@@ -102,7 +102,7 @@ function scramble(){
 if(eleId('heading')){
     eleId('heading').onmouseleave=event=>{
         scrambleFlag=false;
-        // changeHeading();
+        changeHeading();
     }    
     eleId('heading').onmouseover=event=>{
         scrambleFlag=true;
@@ -206,5 +206,5 @@ function formatNumber(number){
 }
 
 window.onload = (event) =>{
-    //  (changeHeading)()
+     (changeHeading)()
 }
