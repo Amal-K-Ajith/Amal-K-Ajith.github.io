@@ -73,7 +73,7 @@ window.onmousemove=e=>{
 }
 function changeHeading(){
     if(scrambleFlag || runningFlag || !eleId("heading")) return;
-    const arr=['Hello Welcome', 'my name is amal k ajith',,'frontend dev','js','java','react','angular','node'];
+    const arr=['Hello Welcome', 'my name is amal k ajith','frontend dev','js','java','react','angular','node'];
     eleId('heading').dataset.value=arr[count%arr.length].toUpperCase();
     runningFlag = true
     scramble();
