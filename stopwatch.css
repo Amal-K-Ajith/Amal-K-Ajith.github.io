@@ -6,6 +6,9 @@
 body{
     font-family: myFirstFont;
 }
+html{
+    overflow: hidden;
+}
 
 /* Watch */
 .watch-cont{
@@ -19,14 +22,16 @@ body{
         color: lime;
         font-size: 100px;
     }
+    .milli_sec{
+        font-size: 30px;
+    }
 }
 
 .settimer-cont{
     color: lime;
     max-width: 500px;
     font-size: 80px;
-    position: absolute;
-    left: 100px;
+    padding-left: 100px;
     span{
      position: relative;   
     }
@@ -54,7 +59,49 @@ body{
     cursor: pointer;
 }
 
+.stop_parent > div {
+    z-index: -1;
+    position: absolute;
+    right: 4px;
+    bottom: 4px;
+    display: none;
+}
+
 .gradient-green-repeat{
     background: linear-gradient(0deg, black, transparent);
     background-size: 100% 2px;
+}
+
+
+/* Media Width 425px */
+@media screen and (max-width : 425px){
+    .settimer-cont{
+        max-width: unset;
+        font-size: 30px;
+        padding: 10px;
+    }   
+    .watch-cont{
+        height: 200px;
+        width: 200px;
+        border-width: 2px;
+        & > div > span{
+            font-size: 50px;
+        }
+        .milli_sec{
+            font-size: 20px;
+        }
+    }
+    .stop{
+        border-width: 10px;
+    }
+     .play{
+        border-width: 30px;
+    }
+    .stop_parent > div {
+        z-index: -1;
+        position: absolute;
+        right: 11px;
+        bottom: 11px;
+        display: none;
+    }
 }

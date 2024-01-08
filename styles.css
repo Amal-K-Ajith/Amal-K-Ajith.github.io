@@ -1,3 +1,7 @@
+html{
+    overflow: hidden;
+}
+
 body{
     background:black;
     overflow: hidden;
@@ -119,16 +123,12 @@ body{
     background: #ffffff1f;
     text-decoration: none;
     margin: 0 20px 0 0;
+    color: rgb(30, 182, 196);
     &:hover{
         box-shadow: 0 0 5px 7px;
     }
 }
-.other-link{
-    color: rgb(30, 182, 196)
-}
-.stopwatch-link{
-    color: lime;
-}
+
 .project-heading{
     font-size: 40px;
 }
