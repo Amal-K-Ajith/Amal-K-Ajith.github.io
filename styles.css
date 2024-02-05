@@ -118,6 +118,16 @@ body{
     display: flex;
     align-items: center;
 }
+.flex-justify-center{
+    justify-content: center;
+}
+.flex-align-center{
+    align-items: center;
+}
+.flex-center{
+    justify-content: center;
+    align-items: center;
+}
 .flex-wrap{
     flex-wrap: wrap;
 }
