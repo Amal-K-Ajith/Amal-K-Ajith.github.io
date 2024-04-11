@@ -44,7 +44,7 @@ const generateCells= ()=>{
 
 // --- Bubble code end ----
 
-let scrambleFlag = false;
+let scrambleFlag = false; 
 let runningFlag = false;
 let stopFlag;
 let watchInterval = [];
