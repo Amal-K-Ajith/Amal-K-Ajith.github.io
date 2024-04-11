@@ -40,7 +40,7 @@ window.onmousemove=e=>{
 // window.addEventListener("resize",generateCells);
 function changeHeading(){
     if(scrambleFlag)return;
-    const arr=['Hello Welcome', 'welcome to the site','frontend dev','js','java','react','angular'];
+    const arr=['Hello Welcome', 'welcome to the site','frontend dev','js','java','react','angular',];
     document.getElementById('heading').dataset.value=arr[count%arr.length].toUpperCase();
     scramble();
     count++;
@@ -53,9 +53,11 @@ function scramble(){
     let int=setInterval(()=>{
         heading.innerHTML=heading.dataset.value.split('').map(
             (letter,index)=>{
+            if(heading.dataset.value===' ')return ' ';
             if(index<ite)return heading.dataset.value[index];
             return letters[Math.floor(Math.random()*26)]
         }).join("");
+        if(scrambleFlag)clearInterval(int)
         if(ite>heading.dataset.value.length){
             setTimeout(changeHeading,1000);
             clearInterval(int);
@@ -65,11 +67,11 @@ function scramble(){
 }
 // document.getElementById('heading').onmouseover=event=>{
     // }
-document.getElementById('heading').onmouseleave=event=>{
+document.getElementById('heading').onmouseleave=()=>{
     scrambleFlag=false;
     changeHeading();
 }    
-document.getElementById('heading').onmouseover=event=>{
+document.getElementById('heading').onmouseover=()=>{
     scrambleFlag=true;
 }
 (changeHeading)()
