@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="initial-letter-aa-minimalist.jpg">
+    <title>Year Completed</title>
+    <link rel="stylesheet" href="./styles.css">
+    <style>
+        @font-face {
+            font-family: single_story;
+            src: url(SingleDay-Regular.ttf);
+        }
+        body{
+            font-family: single_story;
+        }
+        .lapse-cont{
+            border: 10px solid #fff;
+            width: 40%;
+            height: 80px;
+        }
+        .progress{
+            background: red;
+            height: inherit;
+        }
+        #prg-val{
+            color: white;
+            font-size: 40px;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="flex flex-justify-center h-100" style="flex-direction: column;">  
+        <div id="prg-val"></div>
+        <div class="lapse-cont">
+            <div id="prg-bar" class="progress"></div>
+        </div>
+    </div>
+    <script>
+        function calculate_elapsed(){
+            const bar = document.getElementById("prg-bar");
+            const val = document.getElementById("prg-val");
+            const date = new Date();
+            const year_start = new Date(`01-01-${date.getFullYear()}`).setHours(0,0,0,0);
+            const year_end = new Date(`12-31-${date.getFullYear()}`).setHours(23,59,59,999);
+    
+            const today = date.getTime() - year_start;
+            
+            let time_lapsed = ((today/(year_end-year_start))*100).toPrecision(4);
+    
+            bar.style.width = `${time_lapsed}%`;
+            bar.style.background = time_lapsed < 50 ?
+                                                "green" : time_lapsed < 75 
+                                                        ?   "yellow" : "red";
+            val.innerHTML = `${time_lapsed}% Completed of ${date.getFullYear()}`;
+
+        }
+        setInterval(()=>{
+            calculate_elapsed();
+        },10000);
+        calculate_elapsed();
+    </script>
+</body>
+</html>
