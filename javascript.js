@@ -106,6 +106,7 @@ if(eleId('heading')){
     }    
     eleId('heading').onmouseover=event=>{
         scrambleFlag=true;
+        runningFlag = false;
     }
 }
 
